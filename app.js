@@ -5,16 +5,32 @@
   const tabsEl = document.getElementById("tabs");
   const searchEl = document.getElementById("search");
   const emptyStateEl = document.getElementById("emptyState");
+  const controlsEl = document.querySelector(".controls");
 
-  const listView = document.getElementById("listView");
   const detailView = document.getElementById("detailView");
   const detailTitle = document.getElementById("detailTitle");
   const detailAuthor = document.getElementById("detailAuthor");
+  const detailCategory = document.getElementById("detailCategory");
   const detailContent = document.getElementById("detailContent");
   const backBtn = document.getElementById("backBtn");
   const viewTabButtons = document.querySelectorAll(".view-tab");
 
   const ALL_CATEGORY = "Todas";
+
+  // Fixed palette for the usual parts of the Mass; unknown categories
+  // (added later by the user) get a stable color generated from their name.
+  const CATEGORY_COLORS = {
+    "Entrada": "#8C6D46",
+    "Ato Penitencial": "#6B4C57",
+    "Glória": "#B8925A",
+    "Salmo": "#5B6B54",
+    "Aclamação": "#A6763B",
+    "Ofertório": "#4F6B6A",
+    "Santo": "#9C3B4A",
+    "Comunhão": "#3F5B6E",
+    "Ação de Graças": "#7D6A3C",
+    "Final": "#5E4635"
+  };
 
   let songs = [];
   let activeCategory = ALL_CATEGORY;
@@ -30,6 +46,41 @@
       .toLowerCase();
   }
 
+  function hashColor(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const hue = Math.abs(hash) % 360;
+    return `hsl(${hue} 38% 32%)`;
+  }
+
+  function categoryColor(cat) {
+    if (!cat) return "#8A7F71";
+    return CATEGORY_COLORS[cat] || hashColor(cat);
+  }
+
+  function hexToRgba(hex, alpha) {
+    if (!hex.startsWith("#")) return hex; // already hsl(), can't tint easily
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  }
+
+  function stylePill(el, cat) {
+    const color = categoryColor(cat);
+    el.textContent = cat || "";
+    el.style.color = color;
+    el.style.background = color.startsWith("#") ? hexToRgba(color, 0.14) : "rgba(0,0,0,0.06)";
+  }
+
+  function measureControlsHeight() {
+    if (controlsEl) {
+      document.documentElement.style.setProperty("--controls-h", controlsEl.offsetHeight + "px");
+    }
+  }
+
   function loadSongs() {
     fetch("songs.json")
       .then((res) => {
@@ -40,6 +91,7 @@
         songs = (data.songs || []).slice();
         buildTabs();
         renderList();
+        measureControlsHeight();
       })
       .catch((err) => {
         listEl.innerHTML =
@@ -104,26 +156,28 @@
 
       const item = document.createElement("button");
       item.className = "song-item";
-      item.innerHTML =
-        '<span class="song-title"></span>' +
-        '<span class="song-meta"></span>';
-      item.querySelector(".song-title").textContent = song.title;
 
-      const metaEl = item.querySelector(".song-meta");
-      const authorSpan = document.createElement("span");
-      authorSpan.textContent = song.author || "";
-      metaEl.appendChild(authorSpan);
+      const titleEl = document.createElement("span");
+      titleEl.className = "song-title";
+      titleEl.textContent = song.title;
+
+      const row = document.createElement("span");
+      row.className = "song-row";
+
+      const authorEl = document.createElement("span");
+      authorEl.className = "song-author";
+      authorEl.textContent = song.author || "";
+      row.appendChild(authorEl);
+
       if (song.category) {
-        const dot = document.createElement("span");
-        dot.className = "dot";
-        dot.textContent = "·";
-        const cat = document.createElement("span");
-        cat.className = "cat";
-        cat.textContent = song.category;
-        metaEl.appendChild(dot);
-        metaEl.appendChild(cat);
+        const pill = document.createElement("span");
+        pill.className = "cat-pill";
+        stylePill(pill, song.category);
+        row.appendChild(pill);
       }
 
+      item.appendChild(titleEl);
+      item.appendChild(row);
       item.addEventListener("click", () => openSong(song));
       listEl.appendChild(item);
     });
@@ -134,24 +188,69 @@
     currentDetailView = "lyrics";
     detailTitle.textContent = song.title;
     detailAuthor.textContent = song.author || "";
+    if (song.category) {
+      detailCategory.classList.remove("hidden");
+      stylePill(detailCategory, song.category);
+    } else {
+      detailCategory.classList.add("hidden");
+    }
     viewTabButtons.forEach((btn) =>
       btn.classList.toggle("active", btn.dataset.view === "lyrics")
     );
     renderDetailContent();
-    listView.classList.add("hidden");
-    detailView.classList.remove("hidden");
+    detailView.classList.add("open");
+    detailView.setAttribute("aria-hidden", "false");
     detailView.scrollTop = 0;
+  }
+
+  function closeSong() {
+    detailView.classList.remove("open");
+    detailView.setAttribute("aria-hidden", "true");
   }
 
   function renderDetailContent() {
     if (!currentSong) return;
+    detailContent.classList.remove("lyrics-view", "mono-view", "sheet-view");
+    detailContent.innerHTML = "";
+
+    if (currentDetailView === "piano") {
+      detailContent.classList.add("sheet-view");
+      const abcSource = (currentSong.piano || "").trim();
+
+      if (!abcSource) {
+        detailContent.innerHTML = '<p class="sheet-fallback">Ainda não há partitura para esta música.</p>';
+        return;
+      }
+      if (!window.ABCJS) {
+        detailContent.innerHTML = '<p class="sheet-fallback">A partitura precisa de ligação à internet para ser desenhada.</p>';
+        return;
+      }
+      try {
+        window.ABCJS.renderAbc(detailContent, abcSource, {
+          responsive: "resize",
+          staffwidth: 540,
+          paddingtop: 10,
+          paddingbottom: 10,
+          paddingleft: 8,
+          paddingright: 8,
+          foregroundColor: "#2B2420",
+          format: {
+            titlefont: '"Lora" 17',
+            gchordfont: '"IBM Plex Sans" 14 bold',
+            tempofont: '"IBM Plex Sans" 12',
+            partsfont: '"IBM Plex Sans" 12'
+          }
+        });
+      } catch (e) {
+        detailContent.innerHTML = '<p class="sheet-fallback">Não foi possível desenhar a partitura.</p>';
+        console.error(e);
+      }
+      return;
+    }
+
     const value = currentSong[currentDetailView] || "(sem conteúdo)";
     detailContent.textContent = value;
-    detailContent.classList.toggle("lyrics-view", currentDetailView === "lyrics");
-    detailContent.classList.toggle(
-      "mono-view",
-      currentDetailView === "chords" || currentDetailView === "piano"
-    );
+    detailContent.classList.add(currentDetailView === "lyrics" ? "lyrics-view" : "mono-view");
   }
 
   viewTabButtons.forEach((btn) => {
@@ -162,15 +261,14 @@
     });
   });
 
-  backBtn.addEventListener("click", () => {
-    detailView.classList.add("hidden");
-    listView.classList.remove("hidden");
-  });
+  backBtn.addEventListener("click", closeSong);
 
   searchEl.addEventListener("input", (e) => {
     searchTerm = e.target.value;
     renderList();
   });
+
+  window.addEventListener("resize", measureControlsHeight);
 
   loadSongs();
 })();
