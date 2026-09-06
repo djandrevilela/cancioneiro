@@ -38,6 +38,15 @@
   let currentSong = null;
   let currentDetailView = "lyrics";
 
+  // A song can use "categories": ["Entrada", "Final"] (array, any number of
+  // categories) or the older single "category": "Entrada" (string) — both
+  // work, and this is the one place that reads them.
+  function getSongCategories(song) {
+    if (Array.isArray(song.categories)) return song.categories.filter(Boolean);
+    if (song.category) return [song.category];
+    return [];
+  }
+
   function normalize(str) {
     return (str || "")
       .toString()
@@ -102,7 +111,7 @@
 
   function buildTabs() {
     const categories = Array.from(
-      new Set(songs.map((s) => s.category).filter(Boolean))
+      new Set(songs.flatMap(getSongCategories))
     ).sort((a, b) => a.localeCompare(b, "pt"));
 
     const all = [ALL_CATEGORY, ...categories];
@@ -128,7 +137,7 @@
   function getFilteredSongs() {
     const term = normalize(searchTerm);
     return songs
-      .filter((s) => activeCategory === ALL_CATEGORY || s.category === activeCategory)
+      .filter((s) => activeCategory === ALL_CATEGORY || getSongCategories(s).includes(activeCategory))
       .filter((s) => !term || normalize(s.title).includes(term))
       .sort((a, b) => a.title.localeCompare(b.title, "pt"));
   }
@@ -161,23 +170,22 @@
       titleEl.className = "song-title";
       titleEl.textContent = song.title;
 
-      const row = document.createElement("span");
-      row.className = "song-row";
-
       const authorEl = document.createElement("span");
       authorEl.className = "song-author";
       authorEl.textContent = song.author || "";
-      row.appendChild(authorEl);
 
-      if (song.category) {
+      const pillsRow = document.createElement("span");
+      pillsRow.className = "pills-row";
+      getSongCategories(song).forEach((cat) => {
         const pill = document.createElement("span");
         pill.className = "cat-pill";
-        stylePill(pill, song.category);
-        row.appendChild(pill);
-      }
+        stylePill(pill, cat);
+        pillsRow.appendChild(pill);
+      });
 
       item.appendChild(titleEl);
-      item.appendChild(row);
+      item.appendChild(authorEl);
+      if (pillsRow.children.length) item.appendChild(pillsRow);
       item.addEventListener("click", () => openSong(song));
       listEl.appendChild(item);
     });
@@ -188,9 +196,16 @@
     currentDetailView = "lyrics";
     detailTitle.textContent = song.title;
     detailAuthor.textContent = song.author || "";
-    if (song.category) {
+    detailCategory.innerHTML = "";
+    const cats = getSongCategories(song);
+    if (cats.length) {
       detailCategory.classList.remove("hidden");
-      stylePill(detailCategory, song.category);
+      cats.forEach((cat) => {
+        const pill = document.createElement("span");
+        pill.className = "cat-pill";
+        stylePill(pill, cat);
+        detailCategory.appendChild(pill);
+      });
     } else {
       detailCategory.classList.add("hidden");
     }
