@@ -7,7 +7,7 @@
       "category": "Entrada",
       "lyrics": "Vinde, adoremos, o Senhor nosso Deus,\nvinde, cantemos ao Rei dos céus.\n\nEle nos chama a partilhar o seu amor,\nreunidos hoje em festa e louvor.\n\nAbre o coração, deixa entrar a luz,\nque o Senhor nos guia e nos conduz.",
       "chords": "        D          G          A\nVinde, adoremos, o Senhor nosso Deus,\n         D              A         D\nvinde, cantemos ao Rei dos céus.\n\n       G              D\nEle nos chama a partilhar o seu amor,\n        A              D\nreunidos hoje em festa e louvor.\n\n     G           D\nAbre o coração, deixa entrar a luz,\n      A               D\nque o Senhor nos guia e nos conduz.",
-      "piano": "Introdução: Ré maior (D) - Sol (G) - Lá (A) - Ré (D)\n\nMão direita (melodia): Ré Fá# La | Sol Si Ré | Lá Dó# Mi | Ré\nMão esquerda (acompanhamento): D - G - A - D em blocos de 4 tempos\n\nRefrão em Sol maior, terminando em cadência D-A-D."
+      "piano": "X:1\nT:Vinde, Adoremos\nM:4/4\nL:1/4\nQ:1/4=96\nK:D\n\"D\" D2 F2 | \"G\" A2 F2 | \"A\" G2 B2 | \"D\" A4 |\n\"G\" F2 D2 | \"D\" E2 F2 | \"A\" G2 F2 | \"D\" D4 |]"
     },
     {
       "id": "senhor-tem-piedade",
@@ -16,7 +16,7 @@
       "category": "Ato Penitencial",
       "lyrics": "Senhor, tem piedade de nós,\npecadores diante de Vós.\n\nCristo, tem piedade de nós,\nque buscamos o vosso perdão.\n\nSenhor, tem piedade de nós,\nrenovai em nós o vosso amor.",
       "chords": "     Am          E          Am\nSenhor, tem piedade de nós,\n      Dm            E\npecadores diante de Vós.\n\n     C           G\nCristo, tem piedade de nós,\n      Am          E\nque buscamos o vosso perdão.\n\n     Am          E          Am\nSenhor, tem piedade de nós,\n      Dm              E        Am\nrenovai em nós o vosso amor.",
-      "piano": "Tonalidade: Lá menor (Am)\nProgressão: Am - E - Am - Dm - E - C - G - Am - E - Am\nAndamento lento, tocar em acordes arpejados na mão esquerda."
+      "piano": "X:1\nT:Senhor, Tem Piedade\nM:4/4\nL:1/4\nQ:1/4=72\nK:Am\n\"Am\" A2 c2 | \"E\" B2 G2 | \"Am\" A2 E2 | \"Dm\" F2 E2 |\n\"E\" D2 E2 | \"C\" G2 c2 | \"G\" B2 G2 | \"Am\" A4 |]"
     },
     {
       "id": "gloria-a-deus-nas-alturas",
@@ -25,7 +25,7 @@
       "category": "Glória",
       "lyrics": "Glória a Deus nas alturas,\ne paz na terra aos homens que Ele ama.\n\nNós vos louvamos, vos bendizemos,\nvos adoramos, vos glorificamos.\n\nDamos-vos graças pela vossa imensa glória,\nSenhor Deus, Rei dos céus.",
       "chords": "       G            C          D\nGlória a Deus nas alturas,\n       G              C        D       G\ne paz na terra aos homens que Ele ama.\n\n      C           G\nNós vos louvamos, vos bendizemos,\n       C            D\nvos adoramos, vos glorificamos.\n\n      G                C\nDamos-vos graças pela vossa imensa glória,\n      D          G\nSenhor Deus, Rei dos céus.",
-      "piano": "Tonalidade: Sol maior (G), ritmo festivo e marcado\nProgressão: G - C - D - G - C - G - C - D - G - C - D - G\nSugestão: tocar com acordes em blocos e oitavas na mão esquerda para dar solenidade."
+      "piano": "X:1\nT:Glória a Deus nas Alturas\nM:4/4\nL:1/4\nQ:1/4=112\nK:G\n\"G\" G2 B2 | \"C\" d2 B2 | \"D\" A2 G2 | \"G\" G4 |\n\"C\" c2 B2 | \"G\" A2 G2 | \"C\" B2 A2 | \"D\" G4 |\n\"G\" G2 B2 | \"C\" d2 c2 | \"D\" B2 A2 | \"G\" G4 |]"
     },
     {
       "id": "o-senhor-e-meu-pastor",
@@ -34,7 +34,7 @@
       "category": "Salmo",
       "lyrics": "O Senhor é meu pastor, nada me falta.\nEm verdes prados me faz repousar.\n\nConduz-me às águas repousantes\ne reconforta a minha alma.\n\nAinda que eu ande em vale de sombra,\nnão temo mal algum, pois Vós indes comigo.",
       "chords": "      F           C          Dm\nO Senhor é meu pastor, nada me falta.\n       Bb            C          F\nEm verdes prados me faz repousar.\n\n       F              C\nConduz-me às águas repousantes\n       Dm           Bb    C\ne reconforta a minha alma.\n\n      F                Dm\nAinda que eu ande em vale de sombra,\n     Bb           C          F\nnão temo mal algum, pois Vós indes comigo.",
-      "piano": "Tonalidade: Fá maior (F), estilo salmódico e sereno\nProgressão: F - C - Dm - Bb - C - F\nMelodia simples, próxima da fala cantada, acompanhamento suave em colcheias."
+      "piano": "X:1\nT:O Senhor é Meu Pastor\nM:4/4\nL:1/4\nQ:1/4=80\nK:F\n\"F\" C2 F2 | \"C\" A2 G2 | \"Dm\" F2 A2 | \"Bb\" G2 F2 |\n\"C\" E2 F2 | \"F\" G2 A2 | \"Dm\" B2 A2 | \"Bb\" G2 \"C\" F2 |]"
     },
     {
       "id": "aclamai-o-senhor",
@@ -43,7 +43,7 @@
       "category": "Aclamação",
       "lyrics": "Aleluia, aleluia, aleluia!\nAclamai o Senhor, toda a terra!\n\nA sua palavra é luz para os nossos passos,\ncaminho de vida e de verdade.",
       "chords": "     C       G       Am      F\nAleluia, aleluia, aleluia!\n     C          G           C\nAclamai o Senhor, toda a terra!\n\n      F              C\nA sua palavra é luz para os nossos passos,\n     G            Am    F    C\ncaminho de vida e de verdade.",
-      "piano": "Tonalidade: Dó maior (C), tempo vivo e alegre\nProgressão: C - G - Am - F - C - G - C\nSugestão: acordes marcados em cada tempo, com pequeno crescendo no 'Aleluia'."
+      "piano": "X:1\nT:Aclamai o Senhor\nM:4/4\nL:1/4\nQ:1/4=120\nK:C\n\"C\" c2 c2 | \"G\" B2 c2 | \"Am\" A2 G2 | \"F\" F2 E2 |\n\"C\" E2 G2 | \"G\" A2 G2 | \"Am\" F2 \"F\" E2 | \"C\" C4 |]"
     },
     {
       "id": "trazemos-nas-maos",
@@ -52,7 +52,7 @@
       "category": "Ofertório",
       "lyrics": "Trazemos nas mãos o pão e o vinho,\nfruto da terra e do trabalho humano.\n\nOferecemos, Senhor, a nossa vida,\npara que a transformeis em dom de amor.\n\nAceitai, Senhor, este oferecimento,\nque se torne alimento de salvação.",
       "chords": "       Em          C          G\nTrazemos nas mãos o pão e o vinho,\n      D               Em\nfruto da terra e do trabalho humano.\n\n      C            G\nOferecemos, Senhor, a nossa vida,\n       D            Em\npara que a transformeis em dom de amor.\n\n      C              G\nAceitai, Senhor, este oferecimento,\n     D              Em\nque se torne alimento de salvação.",
-      "piano": "Tonalidade: Mi menor (Em), caráter meditativo\nProgressão: Em - C - G - D - Em\nAcompanhamento em arpejos lentos, dinâmica suave (piano/mezzo-piano)."
+      "piano": "X:1\nT:Trazemos nas Mãos\nM:4/4\nL:1/4\nQ:1/4=66\nK:Em\n\"Em\" E2 G2 | \"C\" B2 c2 | \"G\" B2 A2 | \"D\" G2 F2 |\n\"Em\" E2 F2 | \"C\" G2 A2 | \"D\" B2 A2 | \"Em\" E4 |]"
     },
     {
       "id": "santo-e-o-senhor",
@@ -61,7 +61,7 @@
       "category": "Santo",
       "lyrics": "Santo, Santo, Santo é o Senhor Deus do universo.\nO céu e a terra proclamam a vossa glória.\n\nHosana nas alturas!\nBendito o que vem em nome do Senhor.",
       "chords": "      D           A         Bm       G\nSanto, Santo, Santo é o Senhor Deus do universo.\n      D            A            D\nO céu e a terra proclamam a vossa glória.\n\n     G          A\nHosana nas alturas!\n      D            A         D\nBendito o que vem em nome do Senhor.",
-      "piano": "Tonalidade: Ré maior (D), caráter solene e triunfante\nProgressão: D - A - Bm - G - D - A - D\nSugestão: usar oitavas e acordes plenos, andamento moderado."
+      "piano": "X:1\nT:Santo é o Senhor\nM:4/4\nL:1/4\nQ:1/4=88\nK:D\n\"D\" D2 F2 | \"A\" A2 F2 | \"Bm\" d2 B2 | \"G\" A2 G2 |\n\"D\" F2 D2 | \"A\" E2 F2 | \"D\" G2 F2 | \"A\" E2 \"D\" D2 |]"
     },
     {
       "id": "vinde-a-mim",
@@ -70,7 +70,7 @@
       "category": "Comunhão",
       "lyrics": "Vinde a mim, todos os que estais cansados,\ne Eu vos aliviarei, diz o Senhor.\n\nEste é o meu corpo, entregue por vós,\nesta é a aliança no meu sangue.\n\nComei e bebei, permanecei em mim,\ne Eu permanecerei em vós.",
       "chords": "      A           E          F#m\nVinde a mim, todos os que estais cansados,\n      D             A\ne Eu vos aliviarei, diz o Senhor.\n\n      D           A\nEste é o meu corpo, entregue por vós,\n      E             A\nesta é a aliança no meu sangue.\n\n     D            A\nComei e bebei, permanecei em mim,\n      E            A\ne Eu permanecerei em vós.",
-      "piano": "Tonalidade: Lá maior (A), caráter íntimo e recolhido\nProgressão: A - E - F#m - D - A - E - A\nDinâmica suave, tocar com pedal para sustentar os acordes."
+      "piano": "X:1\nT:Vinde a Mim\nM:4/4\nL:1/4\nQ:1/4=70\nK:A\n\"A\" A2 c2 | \"E\" e2 c2 | \"F#m\" d2 c2 | \"D\" B2 A2 |\n\"D\" c2 A2 | \"A\" B2 c2 | \"E\" d2 c2 | \"A\" A4 |]"
     },
     {
       "id": "ide-em-paz",
@@ -79,7 +79,7 @@
       "category": "Final",
       "lyrics": "Ide em paz, e que o Senhor vos acompanhe,\nlevai a alegria do Evangelho.\n\nSede testemunhas do amor que aqui vivemos,\naté que novamente aqui voltemos.",
       "chords": "     C          G           Am       F\nIde em paz, e que o Senhor vos acompanhe,\n     C              G          C\nlevai a alegria do Evangelho.\n\n      F              C\nSede testemunhas do amor que aqui vivemos,\n      G            Am   F    C\naté que novamente aqui voltemos.",
-      "piano": "Tonalidade: Dó maior (C), caráter alegre e de envio\nProgressão: C - G - Am - F - C - G - Am - F - C\nAndamento vivo, bom para acompanhar a saída da assembleia."
+      "piano": "X:1\nT:Ide em Paz\nM:4/4\nL:1/4\nQ:1/4=104\nK:C\n\"C\" C2 E2 | \"G\" G2 E2 | \"Am\" A2 G2 | \"F\" F2 E2 |\n\"F\" E2 F2 | \"C\" G2 A2 | \"G\" F2 \"Am\" E2 | \"F\" D2 \"C\" C2 |]"
     }
   ]
 }
