@@ -167,17 +167,16 @@ html,body{
   font-weight:500;
   color:var(--ink);
 }
-.song-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-}
 .song-author{
   font-size:0.83rem;
   color:var(--ink-soft);
 }
 
+.pills-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
 .cat-pill{
   flex:none;
   font-size:0.72rem;
