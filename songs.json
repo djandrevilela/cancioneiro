@@ -1,85 +1,104 @@
 {
   "songs": [
     {
-      "id": "vinde-adoremos",
-      "title": "Vinde, Adoremos",
-      "author": "Trad. popular",
-      "category": "Entrada",
-      "lyrics": "Vinde, adoremos, o Senhor nosso Deus,\nvinde, cantemos ao Rei dos céus.\n\nEle nos chama a partilhar o seu amor,\nreunidos hoje em festa e louvor.\n\nAbre o coração, deixa entrar a luz,\nque o Senhor nos guia e nos conduz.",
-      "chords": "        D          G          A\nVinde, adoremos, o Senhor nosso Deus,\n         D              A         D\nvinde, cantemos ao Rei dos céus.\n\n       G              D\nEle nos chama a partilhar o seu amor,\n        A              D\nreunidos hoje em festa e louvor.\n\n     G           D\nAbre o coração, deixa entrar a luz,\n      A               D\nque o Senhor nos guia e nos conduz.",
-      "piano": "X:1\nT:Vinde, Adoremos\nM:4/4\nL:1/4\nQ:1/4=96\nK:D\n\"D\" D2 F2 | \"G\" A2 F2 | \"A\" G2 B2 | \"D\" A4 |\n\"G\" F2 D2 | \"D\" E2 F2 | \"A\" G2 F2 | \"D\" D4 |]"
+      "id": "mas-jesus-lembra-te-de-mim",
+      "title": "Mas Jesus Lembra-te de Mim",
+      "author": "Barclay James Harvest e Maria Ana Cabral da Câmara",
+      "categories": ["Louvor", "Reflexão", "Adoração"],
+      "sourceUrl": "https://musicristo.pt/canticos/ver/mas-jesus-lembra-te-de-mim/",
+      "lyrics": "",
+      "chords": "",
+      "piano": ""
     },
     {
-      "id": "senhor-tem-piedade",
-      "title": "Senhor, Tem Piedade",
-      "author": "Coro Paroquial",
-      "category": "Ato Penitencial",
-      "lyrics": "Senhor, tem piedade de nós,\npecadores diante de Vós.\n\nCristo, tem piedade de nós,\nque buscamos o vosso perdão.\n\nSenhor, tem piedade de nós,\nrenovai em nós o vosso amor.",
-      "chords": "     Am          E          Am\nSenhor, tem piedade de nós,\n      Dm            E\npecadores diante de Vós.\n\n     C           G\nCristo, tem piedade de nós,\n      Am          E\nque buscamos o vosso perdão.\n\n     Am          E          Am\nSenhor, tem piedade de nós,\n      Dm              E        Am\nrenovai em nós o vosso amor.",
-      "piano": "X:1\nT:Senhor, Tem Piedade\nM:4/4\nL:1/4\nQ:1/4=72\nK:Am\n\"Am\" A2 c2 | \"E\" B2 G2 | \"Am\" A2 E2 | \"Dm\" F2 E2 |\n\"E\" D2 E2 | \"C\" G2 c2 | \"G\" B2 G2 | \"Am\" A4 |]"
+      "id": "pequeno-rebanho",
+      "title": "Pequeno Rebanho",
+      "author": "Desconhecido",
+      "categories": ["Inicial", "Final", "Reflexão", "Adoração"],
+      "sourceUrl": "https://musicristo.pt/canticos/ver/pequeno-rebanho/",
+      "lyrics": "",
+      "chords": "",
+      "piano": ""
     },
     {
-      "id": "gloria-a-deus-nas-alturas",
-      "title": "Glória a Deus nas Alturas",
-      "author": "Trad. popular",
-      "category": "Glória",
-      "lyrics": "Glória a Deus nas alturas,\ne paz na terra aos homens que Ele ama.\n\nNós vos louvamos, vos bendizemos,\nvos adoramos, vos glorificamos.\n\nDamos-vos graças pela vossa imensa glória,\nSenhor Deus, Rei dos céus.",
-      "chords": "       G            C          D\nGlória a Deus nas alturas,\n       G              C        D       G\ne paz na terra aos homens que Ele ama.\n\n      C           G\nNós vos louvamos, vos bendizemos,\n       C            D\nvos adoramos, vos glorificamos.\n\n      G                C\nDamos-vos graças pela vossa imensa glória,\n      D          G\nSenhor Deus, Rei dos céus.",
-      "piano": "X:1\nT:Glória a Deus nas Alturas\nM:4/4\nL:1/4\nQ:1/4=112\nK:G\n\"G\" G2 B2 | \"C\" d2 B2 | \"D\" A2 G2 | \"G\" G4 |\n\"C\" c2 B2 | \"G\" A2 G2 | \"C\" B2 A2 | \"D\" G4 |\n\"G\" G2 B2 | \"C\" d2 c2 | \"D\" B2 A2 | \"G\" G4 |]"
+      "id": "isaias-43",
+      "title": "Isaías 43",
+      "author": "Duarte Rosado Sj.",
+      "categories": ["Inicial", "Apresentação dos dons", "Pós Comunhão", "Final"],
+      "sourceUrl": "https://musicristo.pt/canticos/ver/isaias-43/",
+      "lyrics": "",
+      "chords": "",
+      "piano": ""
     },
     {
-      "id": "o-senhor-e-meu-pastor",
-      "title": "O Senhor é Meu Pastor",
-      "author": "Salmo 22",
-      "category": "Salmo",
-      "lyrics": "O Senhor é meu pastor, nada me falta.\nEm verdes prados me faz repousar.\n\nConduz-me às águas repousantes\ne reconforta a minha alma.\n\nAinda que eu ande em vale de sombra,\nnão temo mal algum, pois Vós indes comigo.",
-      "chords": "      F           C          Dm\nO Senhor é meu pastor, nada me falta.\n       Bb            C          F\nEm verdes prados me faz repousar.\n\n       F              C\nConduz-me às águas repousantes\n       Dm           Bb    C\ne reconforta a minha alma.\n\n      F                Dm\nAinda que eu ande em vale de sombra,\n     Bb           C          F\nnão temo mal algum, pois Vós indes comigo.",
-      "piano": "X:1\nT:O Senhor é Meu Pastor\nM:4/4\nL:1/4\nQ:1/4=80\nK:F\n\"F\" C2 F2 | \"C\" A2 G2 | \"Dm\" F2 A2 | \"Bb\" G2 F2 |\n\"C\" E2 F2 | \"F\" G2 A2 | \"Dm\" B2 A2 | \"Bb\" G2 \"C\" F2 |]"
+      "id": "vem-espirito-eu-quero-amar",
+      "title": "Vem Espírito (Eu Quero Amar)",
+      "author": "Família Missionária Verbum Dei - Lisboa",
+      "categories": ["Aspersão", "Pós Comunhão", "Reflexão", "Baptismo", "Crisma", "Adoração"],
+      "sourceUrl": "https://musicristo.pt/canticos/ver/vem-espirito-eu-quero-amar/",
+      "lyrics": "",
+      "chords": "",
+      "piano": ""
     },
     {
-      "id": "aclamai-o-senhor",
-      "title": "Aclamai o Senhor",
-      "author": "Coro Paroquial",
-      "category": "Aclamação",
-      "lyrics": "Aleluia, aleluia, aleluia!\nAclamai o Senhor, toda a terra!\n\nA sua palavra é luz para os nossos passos,\ncaminho de vida e de verdade.",
-      "chords": "     C       G       Am      F\nAleluia, aleluia, aleluia!\n     C          G           C\nAclamai o Senhor, toda a terra!\n\n      F              C\nA sua palavra é luz para os nossos passos,\n     G            Am    F    C\ncaminho de vida e de verdade.",
-      "piano": "X:1\nT:Aclamai o Senhor\nM:4/4\nL:1/4\nQ:1/4=120\nK:C\n\"C\" c2 c2 | \"G\" B2 c2 | \"Am\" A2 G2 | \"F\" F2 E2 |\n\"C\" E2 G2 | \"G\" A2 G2 | \"Am\" F2 \"F\" E2 | \"C\" C4 |]"
+      "id": "prece-de-uma-crianca",
+      "title": "Prece de Uma Criança",
+      "author": "Afonso Soares dos Santos",
+      "categories": ["Pós Comunhão", "Louvor", "Reflexão"],
+      "sourceUrl": "https://musicristo.pt/canticos/ver/prece-de-uma-crianca/",
+      "lyrics": "",
+      "chords": "",
+      "piano": ""
     },
     {
-      "id": "trazemos-nas-maos",
-      "title": "Trazemos nas Mãos",
-      "author": "Coro Paroquial",
-      "category": "Ofertório",
-      "lyrics": "Trazemos nas mãos o pão e o vinho,\nfruto da terra e do trabalho humano.\n\nOferecemos, Senhor, a nossa vida,\npara que a transformeis em dom de amor.\n\nAceitai, Senhor, este oferecimento,\nque se torne alimento de salvação.",
-      "chords": "       Em          C          G\nTrazemos nas mãos o pão e o vinho,\n      D               Em\nfruto da terra e do trabalho humano.\n\n      C            G\nOferecemos, Senhor, a nossa vida,\n       D            Em\npara que a transformeis em dom de amor.\n\n      C              G\nAceitai, Senhor, este oferecimento,\n     D              Em\nque se torne alimento de salvação.",
-      "piano": "X:1\nT:Trazemos nas Mãos\nM:4/4\nL:1/4\nQ:1/4=66\nK:Em\n\"Em\" E2 G2 | \"C\" B2 c2 | \"G\" B2 A2 | \"D\" G2 F2 |\n\"Em\" E2 F2 | \"C\" G2 A2 | \"D\" B2 A2 | \"Em\" E4 |]"
+      "id": "so-deus-basta",
+      "title": "Só Deus Basta",
+      "author": "Poema de Santa Teresa D'Ávila",
+      "categories": ["Pós Comunhão", "Final", "Reflexão", "Baptismo", "Crisma", "Adoração", "Benção das Alianças"],
+      "sourceUrl": "https://musicristo.pt/canticos/ver/so-deus-basta/",
+      "lyrics": "",
+      "chords": "",
+      "piano": ""
     },
     {
-      "id": "santo-e-o-senhor",
-      "title": "Santo é o Senhor",
-      "author": "Trad. popular",
-      "category": "Santo",
-      "lyrics": "Santo, Santo, Santo é o Senhor Deus do universo.\nO céu e a terra proclamam a vossa glória.\n\nHosana nas alturas!\nBendito o que vem em nome do Senhor.",
-      "chords": "      D           A         Bm       G\nSanto, Santo, Santo é o Senhor Deus do universo.\n      D            A            D\nO céu e a terra proclamam a vossa glória.\n\n     G          A\nHosana nas alturas!\n      D            A         D\nBendito o que vem em nome do Senhor.",
-      "piano": "X:1\nT:Santo é o Senhor\nM:4/4\nL:1/4\nQ:1/4=88\nK:D\n\"D\" D2 F2 | \"A\" A2 F2 | \"Bm\" d2 B2 | \"G\" A2 G2 |\n\"D\" F2 D2 | \"A\" E2 F2 | \"D\" G2 F2 | \"A\" E2 \"D\" D2 |]"
+      "id": "ninguem-te-ama-como-eu",
+      "title": "Ninguém Te Ama Como Eu",
+      "author": "Martin Valverde",
+      "categories": ["Inicial", "Pós Comunhão", "Final", "Louvor", "Reflexão", "Adoração"],
+      "sourceUrl": "https://musicristo.pt/canticos/ver/ninguem-te-ama-como-eu/",
+      "lyrics": "",
+      "chords": "",
+      "piano": ""
     },
     {
-      "id": "vinde-a-mim",
-      "title": "Vinde a Mim",
-      "author": "Coro Paroquial",
-      "category": "Comunhão",
-      "lyrics": "Vinde a mim, todos os que estais cansados,\ne Eu vos aliviarei, diz o Senhor.\n\nEste é o meu corpo, entregue por vós,\nesta é a aliança no meu sangue.\n\nComei e bebei, permanecei em mim,\ne Eu permanecerei em vós.",
-      "chords": "      A           E          F#m\nVinde a mim, todos os que estais cansados,\n      D             A\ne Eu vos aliviarei, diz o Senhor.\n\n      D           A\nEste é o meu corpo, entregue por vós,\n      E             A\nesta é a aliança no meu sangue.\n\n     D            A\nComei e bebei, permanecei em mim,\n      E            A\ne Eu permanecerei em vós.",
-      "piano": "X:1\nT:Vinde a Mim\nM:4/4\nL:1/4\nQ:1/4=70\nK:A\n\"A\" A2 c2 | \"E\" e2 c2 | \"F#m\" d2 c2 | \"D\" B2 A2 |\n\"D\" c2 A2 | \"A\" B2 c2 | \"E\" d2 c2 | \"A\" A4 |]"
+      "id": "sabor-da-maca",
+      "title": "Sabor da Maçã",
+      "author": "Duarte Rosado SJ",
+      "categories": ["Pós Comunhão", "Reflexão"],
+      "sourceUrl": "https://musicristo.pt/canticos/ver/sabor-da-maca/",
+      "lyrics": "",
+      "chords": "",
+      "piano": ""
     },
     {
-      "id": "ide-em-paz",
-      "title": "Ide em Paz",
-      "author": "Coro Paroquial",
-      "category": "Final",
-      "lyrics": "Ide em paz, e que o Senhor vos acompanhe,\nlevai a alegria do Evangelho.\n\nSede testemunhas do amor que aqui vivemos,\naté que novamente aqui voltemos.",
-      "chords": "     C          G           Am       F\nIde em paz, e que o Senhor vos acompanhe,\n     C              G          C\nlevai a alegria do Evangelho.\n\n      F              C\nSede testemunhas do amor que aqui vivemos,\n      G            Am   F    C\naté que novamente aqui voltemos.",
-      "piano": "X:1\nT:Ide em Paz\nM:4/4\nL:1/4\nQ:1/4=104\nK:C\n\"C\" C2 E2 | \"G\" G2 E2 | \"Am\" A2 G2 | \"F\" F2 E2 |\n\"F\" E2 F2 | \"C\" G2 A2 | \"G\" F2 \"Am\" E2 | \"F\" D2 \"C\" C2 |]"
+      "id": "conta-as-estrelas-do-ceu",
+      "title": "Conta as Estrelas do Céu",
+      "author": "Pe. Nuno Tovar Lemos",
+      "categories": ["Pós Comunhão", "Final", "Reflexão"],
+      "sourceUrl": "https://musicristo.pt/canticos/ver/conta-as-estrelas-do-ceu/",
+      "lyrics": "",
+      "chords": "",
+      "piano": ""
+    },
+    {
+      "id": "nos-amou",
+      "title": "Nos Amou",
+      "author": "Comunidade Cristã de Lisboa",
+      "categories": ["Pós Comunhão", "Louvor", "Reflexão"],
+      "sourceUrl": "https://musicristo.pt/canticos/ver/nos-amou/",
+      "lyrics": "",
+      "chords": "",
+      "piano": ""
     }
   ]
 }
