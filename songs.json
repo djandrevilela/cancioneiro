@@ -170,7 +170,7 @@
       "lyrics": "",
       "chords": "",
       "piano": "",
-      "listenUrl": ""
+      "listenUrl": "https://www.youtube.com/watch?v=WlOIgIO7A3c"
     },
     {
       "id": "ie-ie-de-jesus",
@@ -197,13 +197,13 @@
     {
       "id": "homenzinho-torto",
       "title": "Homenzinho Torto",
-      "author": "",
+      "author": "Trad. (domínio público)",
       "categories": [],
       "sourceNote": "Cancioneiro Bonito 2022 (Algueirão X COR), pág. 5",
       "lyrics": "",
       "chords": "",
       "piano": "",
-      "listenUrl": ""
+      "listenUrl": "https://www.youtube.com/watch?v=fBNLbKPFWC4"
     },
     {
       "id": "olhei-para-ti-e-vi",
@@ -247,7 +247,8 @@
       "lyrics": "",
       "chords": "",
       "piano": "",
-      "listenUrl": ""
+      "listenUrl": "",
+      "sourceUrl": "https://musicristo.pt/canticos/ver/grita-comigo"
     },
     {
       "id": "ah-eu-amo-a-cristo",
@@ -307,13 +308,14 @@
     {
       "id": "maravilhas-fez-em-mim",
       "title": "Maravilhas Fez em Mim",
-      "author": "",
+      "author": "Paula Willumsen",
       "categories": [],
       "sourceNote": "Cancioneiro Bonito 2022 (Algueirão X COR), pág. 13",
       "lyrics": "",
       "chords": "",
       "piano": "",
-      "listenUrl": ""
+      "listenUrl": "",
+      "sourceUrl": "https://musicristo.pt/canticos/ver/maravilhas-fez-em-mim/"
     },
     {
       "id": "bom-dia-jesus",
@@ -479,18 +481,19 @@
       "lyrics": "",
       "chords": "",
       "piano": "",
-      "listenUrl": ""
+      "listenUrl": "",
+      "sourceUrl": "https://musicristo.pt/canticos/ver/vem-e-segue-me/"
     },
     {
       "id": "igreja-reunida",
       "title": "Igreja Reunida",
-      "author": "",
+      "author": "Pe. José Luís, CSh",
       "categories": [],
       "sourceNote": "Cancioneiro Bonito 2022 (Algueirão X COR), pág. 27",
       "lyrics": "",
       "chords": "",
       "piano": "",
-      "listenUrl": ""
+      "listenUrl": "https://www.youtube.com/watch?v=Y7pQy_kgC54"
     },
     {
       "id": "calcada-branca",
@@ -517,13 +520,13 @@
     {
       "id": "nascer-outra-vez",
       "title": "Nascer Outra Vez",
-      "author": "",
+      "author": "Ritual Tejo",
       "categories": [],
       "sourceNote": "Cancioneiro Bonito 2022 (Algueirão X COR), pág. 30",
       "lyrics": "",
       "chords": "",
       "piano": "",
-      "listenUrl": ""
+      "listenUrl": "https://www.youtube.com/watch?v=8KRL7H_E1oM"
     },
     {
       "id": "teus-filhos",
@@ -539,13 +542,14 @@
     {
       "id": "testemunhas-da-ressurreicao",
       "title": "Testemunhas da Ressurreição",
-      "author": "",
+      "author": "Kairoi",
       "categories": [],
       "sourceNote": "Cancioneiro Bonito 2022 (Algueirão X COR), pág. 32",
       "lyrics": "",
       "chords": "",
       "piano": "",
-      "listenUrl": ""
+      "listenUrl": "",
+      "sourceUrl": "https://musicristo.pt/canticos/ver/somos-testemunhas-da-ressurreicao/"
     },
     {
       "id": "oceans",
@@ -583,13 +587,14 @@
     {
       "id": "lanca-te-voa-bem-mais-alto",
       "title": "Lança-Te (Voa Bem Mais Alto)",
-      "author": "",
+      "author": "Irmã Maria Amélia Costa",
       "categories": [],
       "sourceNote": "Cancioneiro Bonito 2022 (Algueirão X COR), pág. 36",
       "lyrics": "",
       "chords": "",
       "piano": "",
-      "listenUrl": ""
+      "listenUrl": "https://www.youtube.com/watch?v=vL4nsrbYkeY",
+      "sourceUrl": "https://musicristo.pt/canticos/ver/lanca-te-voa-bem-mais-alto"
     },
     {
       "id": "dar-mais",
