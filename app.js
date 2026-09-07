@@ -18,19 +18,30 @@
 
   const ALL_CATEGORY = "Todas";
 
-  // Fixed palette for the usual parts of the Mass; unknown categories
-  // (added later by the user) get a stable color generated from their name.
+  // Fixed palette so the usual categories always look the same; unknown
+  // categories added later by the user get a stable color generated from
+  // their name (see hashColor below).
   const CATEGORY_COLORS = {
-    "Entrada": "#8C6D46",
+    "Entrada": "#1F7A5C",
+    "Inicial": "#2E8F6B",
     "Ato Penitencial": "#6B4C57",
-    "Glória": "#B8925A",
-    "Salmo": "#5B6B54",
-    "Aclamação": "#A6763B",
-    "Ofertório": "#4F6B6A",
-    "Santo": "#9C3B4A",
-    "Comunhão": "#3F5B6E",
-    "Ação de Graças": "#7D6A3C",
-    "Final": "#5E4635"
+    "Aspersão": "#2F8FA0",
+    "Glória": "#C9922E",
+    "Salmo": "#3E6B4F",
+    "Aclamação": "#B15E1F",
+    "Ofertório": "#2E7D8C",
+    "Apresentação dos dons": "#4F8C3D",
+    "Santo": "#9C3B6B",
+    "Comunhão": "#3F5B9E",
+    "Pós Comunhão": "#5A6B8C",
+    "Ação de Graças": "#8C6D1F",
+    "Final": "#B0473E",
+    "Reflexão": "#4A5FA8",
+    "Louvor": "#D97F1F",
+    "Adoração": "#A63D9D",
+    "Baptismo": "#3D8C7A",
+    "Crisma": "#A0522D",
+    "Benção das Alianças": "#C2185B"
   };
 
   let songs = [];
@@ -154,6 +165,8 @@
     emptyStateEl.classList.add("hidden");
 
     let lastLetter = null;
+    let currentGrid = null;
+
     filtered.forEach((song) => {
       const firstChar = normalize(song.title).charAt(0).toUpperCase();
       if (firstChar !== lastLetter) {
@@ -162,10 +175,29 @@
         heading.className = "letter-heading";
         heading.textContent = firstChar;
         listEl.appendChild(heading);
+
+        currentGrid = document.createElement("div");
+        currentGrid.className = "song-grid";
+        listEl.appendChild(currentGrid);
       }
 
-      const item = document.createElement("button");
-      item.className = "song-item";
+      const cats = getSongCategories(song);
+
+      const card = document.createElement("button");
+      card.className = "song-card";
+      if (cats.length) {
+        const accent = categoryColor(cats[0]);
+        if (accent.startsWith("#")) card.style.setProperty("--card-accent", accent);
+      }
+
+      const pillsRow = document.createElement("span");
+      pillsRow.className = "pills-row";
+      cats.forEach((cat) => {
+        const pill = document.createElement("span");
+        pill.className = "cat-pill";
+        stylePill(pill, cat);
+        pillsRow.appendChild(pill);
+      });
 
       const titleEl = document.createElement("span");
       titleEl.className = "song-title";
@@ -175,20 +207,11 @@
       authorEl.className = "song-author";
       authorEl.textContent = song.author || "";
 
-      const pillsRow = document.createElement("span");
-      pillsRow.className = "pills-row";
-      getSongCategories(song).forEach((cat) => {
-        const pill = document.createElement("span");
-        pill.className = "cat-pill";
-        stylePill(pill, cat);
-        pillsRow.appendChild(pill);
-      });
-
-      item.appendChild(titleEl);
-      item.appendChild(authorEl);
-      if (pillsRow.children.length) item.appendChild(pillsRow);
-      item.addEventListener("click", () => openSong(song));
-      listEl.appendChild(item);
+      if (pillsRow.children.length) card.appendChild(pillsRow);
+      card.appendChild(titleEl);
+      card.appendChild(authorEl);
+      card.addEventListener("click", () => openSong(song));
+      currentGrid.appendChild(card);
     });
   }
 
