@@ -17,6 +17,9 @@
   const viewTabButtons = document.querySelectorAll(".view-tab");
 
   const ALL_CATEGORY = "Todas";
+  const SONGS_CACHE_KEY = "cancioneiro:songs-cache";
+  const SONGS_CACHE_TIME_KEY = "cancioneiro:songs-cache-time";
+  const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 
   // Fixed palette so the usual categories always look the same; unknown
   // categories added later by the user get a stable color generated from
@@ -147,21 +150,48 @@
   }
 
   function loadSongs() {
+    const cachedRaw = localStorage.getItem(SONGS_CACHE_KEY);
+    const cachedTime = parseInt(localStorage.getItem(SONGS_CACHE_TIME_KEY) || "0", 10);
+    const isFresh = cachedRaw && Date.now() - cachedTime < SEVEN_DAYS_MS;
+
+    if (cachedRaw) {
+      try {
+        const data = JSON.parse(cachedRaw);
+        songs = (data.songs || []).slice();
+        buildTabs();
+        renderList();
+        measureControlsHeight();
+      } catch (e) {
+        console.error("Cache local inválida, a ignorar.", e);
+      }
+    }
+
+    // Fresh cache (<7 days old): what's already on screen is enough for now.
+    // Still refresh quietly in the background so next time it's up to date.
+    fetchAndCacheSongs(!!cachedRaw && isFresh);
+  }
+
+  function fetchAndCacheSongs(silent) {
     fetch("songs.json")
       .then((res) => {
         if (!res.ok) throw new Error("Falha ao carregar songs.json");
-        return res.json();
+        return res.text();
       })
-      .then((data) => {
+      .then((text) => {
+        localStorage.setItem(SONGS_CACHE_KEY, text);
+        localStorage.setItem(SONGS_CACHE_TIME_KEY, String(Date.now()));
+        const data = JSON.parse(text);
         songs = (data.songs || []).slice();
         buildTabs();
         renderList();
         measureControlsHeight();
       })
       .catch((err) => {
-        listEl.innerHTML =
-          '<p class="empty-state">Não foi possível carregar o repositório. Verifique se o ficheiro songs.json existe e se a página está a ser servida por um servidor web (não aberta diretamente do disco).</p>';
         console.error(err);
+        if (!silent && songs.length === 0) {
+          listEl.innerHTML =
+            '<p class="empty-state">Sem ligação à internet e ainda sem dados guardados neste aparelho. Liga-te uma vez para carregar o repositório — depois disso funciona offline.</p>';
+        }
       });
   }
 
@@ -364,5 +394,73 @@
   window.addEventListener("resize", measureControlsHeight);
 
   setupTabsScrolling();
+  setupInstallFlow();
+  registerServiceWorker();
   loadSongs();
+
+  // ---------- Install as app (Android/desktop + iOS instructions) ----------
+  function setupInstallFlow() {
+    const installBtn = document.getElementById("installBtn");
+    const iosHint = document.getElementById("iosInstallHint");
+    const iosHintClose = document.getElementById("iosHintClose");
+    let deferredPrompt = null;
+
+    function isStandalone() {
+      return (
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.navigator.standalone === true
+      );
+    }
+    function isIos() {
+      return (
+        /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
+      );
+    }
+
+    if (isStandalone()) return; // already installed, nothing to offer
+
+    if (isIos()) {
+      // Safari never fires beforeinstallprompt — show the button and, on
+      // tap, explain the manual "Add to Home Screen" steps instead.
+      installBtn.classList.remove("hidden");
+      installBtn.addEventListener("click", () => {
+        iosHint.classList.remove("hidden");
+      });
+      iosHintClose.addEventListener("click", () => iosHint.classList.add("hidden"));
+      iosHint.addEventListener("click", (e) => {
+        if (e.target === iosHint) iosHint.classList.add("hidden");
+      });
+      return;
+    }
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.classList.remove("hidden");
+    });
+
+    installBtn.addEventListener("click", async () => {
+      if (!deferredPrompt) return;
+      installBtn.classList.add("hidden");
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+    });
+
+    window.addEventListener("appinstalled", () => {
+      installBtn.classList.add("hidden");
+    });
+  }
+
+  // ---------- Offline support ----------
+  function registerServiceWorker() {
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js").catch((err) => {
+          console.error("Falha ao registar o service worker:", err);
+        });
+      });
+    }
+  }
 })();

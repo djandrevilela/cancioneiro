@@ -66,6 +66,22 @@ Se um ficheiro `piano` estiver vazio ou a internet estiver em baixo (a partitura
 
 A partir daí, sempre que editar `songs.json` (ou qualquer outro ficheiro) diretamente no GitHub e guardar (commit), o site atualiza automaticamente em cerca de um minuto.
 
+## Instalar como app (Android, iOS, PC) e uso offline
+
+A partir de agora este é um PWA (Progressive Web App) instalável:
+
+- **Android / Chrome / Edge (PC)**: aparece um botão **"Instalar"** no cabeçalho assim que o navegador achar que a app está pronta para instalar (tem de estar em `https://`, o que o GitHub Pages já garante). Ao tocar, abre o diálogo nativo de instalação — depois disso fica um ícone próprio no ecrã principal / lista de aplicações, sem barra de endereço.
+- **iOS (Safari)**: a Apple não permite que nenhum site dispare a instalação sozinho — é uma limitação do iOS, não desta app. Por isso, no Safari o botão "Instalar" mostra antes um pequeno guia com os 2 passos: tocar em **Partilhar** e depois **"Adicionar ao Ecrã Principal"**. Feito isso, fica igual a uma app instalada (ícone próprio, sem barra do Safari, funciona offline).
+- **Funciona sem internet**: um *service worker* (`sw.js`) guarda em cache os ficheiros da app (HTML/CSS/JS, tipografia, ícones) na primeira visita, por isso depois disso a app abre e funciona mesmo sem rede.
+- **Dados em cache 7 dias**: o `songs.json` é guardado no telemóvel/PC (`localStorage`) com data. Enquanto tiver menos de 7 dias, a app usa logo essa cópia local (mais rápido, funciona offline) e só depois tenta atualizar em segundo plano se houver internet. Passados 7 dias, tenta ir buscar uma versão fresca da próxima vez que houver ligação; se não houver internet nenhuma, continua a mostrar os dados antigos em vez de ficar vazia.
+
+**Ficheiros novos para publicar no GitHub Pages** (juntar aos anteriores, na raiz do repositório):
+- `manifest.json` — descreve a app (nome, cores, ícones) para poder ser instalada
+- `sw.js` — o service worker que trata do offline
+- pasta `icons/` com `icon-192.png`, `icon-512.png`, `icon-512-maskable.png` e `apple-touch-icon.png`
+
+Nota: se editares o `index.html`, `style.css` ou `app.js` no futuro, muda o texto `CACHE_VERSION` no topo do `sw.js` (ex. de `"v1"` para `"v2"`) — isso força o service worker a substituir a cópia antiga em cache pela nova, em vez de continuar a servir a versão desatualizada aos utilizadores que já tinham a app aberta.
+
 ## Testar localmente antes de publicar
 
 Como a app carrega `songs.json` via `fetch`, abrir `index.html` diretamente a fazer duplo-clique (com `file://`) pode não funcionar em alguns navegadores por restrições de segurança. Para testar localmente, corra um pequeno servidor na pasta do projeto, por exemplo:

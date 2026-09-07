@@ -48,6 +48,12 @@ html,body{
   padding:30px 20px 4px;
   position:relative;
 }
+.topbar-row{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
 .brand{
   font-family:var(--font-display);
   font-weight:600;
@@ -69,6 +75,81 @@ html,body{
   width:56px;
   border-radius:999px;
   background:linear-gradient(90deg, var(--primary), var(--coral));
+}
+
+.install-btn{
+  flex:none;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin-top:2px;
+  padding:8px 14px;
+  border:none;
+  border-radius:999px;
+  background:var(--coral);
+  color:#fff;
+  font-family:var(--font-ui);
+  font-size:0.82rem;
+  font-weight:600;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:background-color .15s ease;
+}
+.install-btn:hover, .install-btn:active{background:var(--coral-dark);}
+
+/* ---------- iOS "how to install" hint ---------- */
+.ios-hint{
+  position:fixed;
+  inset:0;
+  z-index:40;
+  background:rgba(36,27,46,0.45);
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:0;
+}
+.ios-hint-card{
+  position:relative;
+  width:100%;
+  max-width:640px;
+  background:var(--card-bg);
+  border-radius:20px 20px 0 0;
+  padding:24px 24px 30px;
+  box-shadow:0 -12px 30px rgba(36,27,46,0.18);
+}
+.ios-hint-card p{
+  margin:0 0 10px;
+  font-size:0.94rem;
+  line-height:1.5;
+  color:var(--ink);
+}
+.ios-hint-title{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.15rem;
+  color:var(--primary-dark);
+  margin-bottom:14px !important;
+}
+.ios-hint-note{
+  font-size:0.82rem !important;
+  color:var(--ink-soft);
+}
+.ios-share-icon{font-size:1rem;}
+.ios-hint-close{
+  position:absolute;
+  top:14px;
+  right:16px;
+  border:none;
+  background:none;
+  font-size:1.6rem;
+  line-height:1;
+  color:var(--ink-soft);
+  cursor:pointer;
+  padding:4px;
+}
+@media (min-width:640px){
+  .ios-hint{align-items:center;}
+  .ios-hint-card{max-width:420px; border-radius:20px;}
 }
 
 /* ---------- Sticky controls (search + tabs) ---------- */

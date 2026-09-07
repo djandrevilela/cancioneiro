@@ -9,6 +9,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#5B3A8E">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Cancioneiro">
 </head>
 <body>
 
@@ -16,8 +23,16 @@
 
   <div id="listView" class="app-screen">
     <header class="topbar">
-      <h1 class="brand">Cancioneiro</h1>
-      <p class="brand-sub">Repositório de cânticos do coro</p>
+      <div class="topbar-row">
+        <div>
+          <h1 class="brand">Cancioneiro</h1>
+          <p class="brand-sub">Repositório de cânticos do coro</p>
+        </div>
+        <button id="installBtn" class="install-btn hidden" aria-label="Instalar aplicação">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 4v11m0 0l-4-4m4 4l4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 17v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          Instalar
+        </button>
+      </div>
     </header>
 
     <div class="controls">
@@ -35,6 +50,16 @@
     <main id="list" class="list" aria-live="polite"></main>
 
     <p id="emptyState" class="empty-state hidden">Nenhuma música encontrada.</p>
+  </div>
+
+  <div id="iosInstallHint" class="ios-hint hidden">
+    <div class="ios-hint-card">
+      <button id="iosHintClose" class="ios-hint-close" aria-label="Fechar">&times;</button>
+      <p class="ios-hint-title">Instalar o Cancioneiro</p>
+      <p>1. Toca no botão <strong>Partilhar</strong> <span class="ios-share-icon">⬆️</span> na barra do Safari.</p>
+      <p>2. Escolhe <strong>"Adicionar ao Ecrã Principal"</strong>.</p>
+      <p class="ios-hint-note">O iOS não permite instalar apps diretamente por um botão — este é o único caminho, mas depois de feito fica igual a uma app normal, com ícone próprio e a funcionar sem internet.</p>
+    </div>
   </div>
 
   <div id="detailView" class="detail-screen" aria-hidden="true">
