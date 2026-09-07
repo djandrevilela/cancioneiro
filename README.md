@@ -26,7 +26,9 @@ Abra `songs.json` e edite o array `songs`. Cada música tem esta forma:
 ```
 
 Notas:
-- `category` pode ser qualquer texto — as categorias (separadores/tabs) são geradas automaticamente a partir dos valores usados no ficheiro. Sugestões típicas de uma Missa católica: `Entrada`, `Ato Penitencial`, `Glória`, `Salmo`, `Aclamação`, `Ofertório`, `Santo`, `Comunhão`, `Ação de Graças`, `Final`. Cada categoria mostra uma cor própria (fixa para estas 10; qualquer categoria nova que adicione recebe automaticamente uma cor estável, gerada a partir do nome).
+- Uma música pode ter **mais do que uma categoria**. Use `"categories": ["Comunhão", "Ação de Graças"]` (array) em vez de `"category"`. O formato antigo com `"category": "Entrada"` (uma só, em texto) continua a funcionar na mesma — pode ir convertendo aos poucos, ou nem converter, se não precisar de mais do que uma categoria por música. Quando uma música tem várias categorias, aparece nas tabs de todas elas e mostra todas as etiquetas na lista e no ecrã da música.
+- O botão **"Ouvir"** no ecrã de cada música usa o campo `listenUrl` (link direto para o áudio — YouTube, Spotify, ficheiro mp3, etc.). Se `listenUrl` estiver vazio, usa `sourceUrl` como alternativa (por exemplo, a página do MusiCristo, que normalmente já tem o áudio incorporado). Se nenhum dos dois existir, o botão não aparece.
+- `category`/`categories` pode ser qualquer texto — as categorias (separadores/tabs) são geradas automaticamente a partir dos valores usados no ficheiro. Sugestões típicas de uma Missa católica: `Entrada`, `Ato Penitencial`, `Glória`, `Salmo`, `Aclamação`, `Ofertório`, `Santo`, `Comunhão`, `Ação de Graças`, `Final`. Cada categoria mostra uma cor própria (fixa para estas 10; qualquer categoria nova que adicione recebe automaticamente uma cor estável, gerada a partir do nome).
 - Para alinhar acordes sobre a letra em `chords`, use espaços — a fonte é monoespaçada, por isso os espaços alinham corretamente.
 
 ### O separador "Piano" mostra partitura real

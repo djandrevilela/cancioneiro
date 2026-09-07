@@ -234,7 +234,7 @@ html,body{
   cursor:pointer;
   margin-top:2px;
 }
-.detail-titles{min-width:0;}
+.detail-titles{min-width:0; flex:1;}
 .detail-titles h2{
   font-family:var(--font-display);
   font-weight:600;
@@ -254,6 +254,26 @@ html,body{
   font-size:0.85rem;
   color:var(--ink-soft);
 }
+
+.listen-btn{
+  flex:none;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 14px;
+  margin-top:2px;
+  border-radius:999px;
+  background:var(--wine);
+  color:#fff;
+  font-family:var(--font-ui);
+  font-size:0.85rem;
+  font-weight:500;
+  text-decoration:none;
+  white-space:nowrap;
+  transition:background-color .15s ease;
+}
+.listen-btn:hover{background:var(--wine-dark);}
+.listen-btn:active{background:var(--wine-dark);}
 
 .view-tabs{
   display:flex;

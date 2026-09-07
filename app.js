@@ -12,6 +12,7 @@
   const detailAuthor = document.getElementById("detailAuthor");
   const detailCategory = document.getElementById("detailCategory");
   const detailContent = document.getElementById("detailContent");
+  const listenBtn = document.getElementById("listenBtn");
   const backBtn = document.getElementById("backBtn");
   const viewTabButtons = document.querySelectorAll(".view-tab");
 
@@ -212,6 +213,16 @@
     viewTabButtons.forEach((btn) =>
       btn.classList.toggle("active", btn.dataset.view === "lyrics")
     );
+
+    const listenUrl = song.listenUrl || song.sourceUrl || "";
+    if (listenUrl) {
+      listenBtn.href = listenUrl;
+      listenBtn.classList.remove("hidden");
+    } else {
+      listenBtn.removeAttribute("href");
+      listenBtn.classList.add("hidden");
+    }
+
     renderDetailContent();
     detailView.classList.add("open");
     detailView.setAttribute("aria-hidden", "false");
