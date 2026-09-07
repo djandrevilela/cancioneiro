@@ -82,6 +82,24 @@ A partir de agora este é um PWA (Progressive Web App) instalável:
 
 Nota: se editares o `index.html`, `style.css` ou `app.js` no futuro, muda o texto `CACHE_VERSION` no topo do `sw.js` (ex. de `"v1"` para `"v2"`) — isso força o service worker a substituir a cópia antiga em cache pela nova, em vez de continuar a servir a versão desatualizada aos utilizadores que já tinham a app aberta.
 
+## Editor (criar/editar músicas, gravar direto no GitHub)
+
+Há agora uma página `editor.html`, acessível a partir de um link discreto ("Gerir repositório") no fundo da lista principal. Serve para criar músicas novas e editar as existentes sem mexer manualmente no `songs.json`.
+
+**Como ligar ao GitHub:**
+1. No topo do editor, abre o painel "Ligar ao GitHub".
+2. Cria um *personal access token* em github.com → Settings → Developer settings → Personal access tokens → Fine-grained tokens. Escolhe: só este repositório, e permissão **Contents: Read and write**. Não precisas de mais nenhuma permissão.
+3. Preenche repositório (`dono/nome`), ramo (normalmente `main`), caminho (`songs.json`) e cola o token.
+4. "Ligar e carregar songs.json" — a lista de músicas aparece à esquerda.
+
+O token fica guardado só neste navegador (`localStorage`), nunca é enviado para mais lado nenhum além da API do GitHub. Ainda assim, mantém o alcance do token limitado a este repositório, e usa "Esquecer dados guardados" se estiveres num computador partilhado.
+
+**Criar ou editar:**
+- "+ Nova" limpa o formulário; clicar numa música da lista carrega-a para editar.
+- Preenche título, autor, categorias (separadas por vírgula), letra, acordes e, se quiseres, o link para ouvir.
+- **Piano**: em vez de escreveres ABC à mão, escreve as notas com nomes portugueses (Dó Ré Mi Fá Sol Lá Si) — maiúscula para a oitava normal, minúscula para uma oitava acima, `#`/`b` para alterações, números para duração, acordes entre aspas — exatamente como já fazes nos acordes de guitarra. Indica a tonalidade (ex: "Ré", "Sol", "Lá menor") e o compasso, carrega em "Converter para ABC" e depois em "Atualizar pré-visualização" para ver a partitura desenhada. O resultado fica editável na caixa ABC por baixo, caso precises de afinar algo à mão.
+- "Publicar no GitHub" grava tudo direto no repositório (faz um commit). "Guardar rascunho local" e "Descarregar songs.json" são redes de segurança caso não queiras publicar já, ou o GitHub esteja indisponível.
+
 ## Testar localmente antes de publicar
 
 Como a app carrega `songs.json` via `fetch`, abrir `index.html` diretamente a fazer duplo-clique (com `file://`) pode não funcionar em alguns navegadores por restrições de segurança. Para testar localmente, corra um pequeno servidor na pasta do projeto, por exemplo:

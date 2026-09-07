@@ -327,6 +327,18 @@ html,body{
   font-size:0.95rem;
 }
 
+.editor-link-wrap{
+  text-align:center;
+  padding:24px 20px 8px;
+}
+.editor-link{
+  font-size:0.8rem;
+  color:var(--ink-soft);
+  text-decoration:underline;
+  text-decoration-color:var(--line);
+}
+.editor-link:hover{color:var(--primary-dark);}
+
 /* ---------- Detail view ----------
    Mobile: full-screen panel that slides in from the right.
    Desktop (see media query below): becomes a centred modal — this

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editor — Cancioneiro do Coro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="editor.css">
+</head>
+<body>
+<div class="app-shell editor-shell">
+
+  <header class="topbar">
+    <div class="topbar-row">
+      <div>
+        <h1 class="brand">Editor</h1>
+        <p class="brand-sub">Criar e editar músicas do repositório</p>
+      </div>
+      <a href="index.html" class="install-btn" style="text-decoration:none;">← Voltar</a>
+    </div>
+  </header>
+
+  <!-- ---------- GitHub connection panel ---------- -->
+  <section class="panel" id="githubPanel">
+    <button class="panel-toggle" id="githubToggle" aria-expanded="false">
+      <span id="githubStatusDot" class="status-dot offline"></span>
+      <span id="githubStatusText">Ligar ao GitHub</span>
+      <svg class="chevron" viewBox="0 0 24 24" width="16" height="16"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="panel-body hidden" id="githubBody">
+      <p class="hint">
+        Precisas de um <strong>personal access token</strong> do GitHub com permissão de escrita neste repositório
+        (num token "fine-grained": permissão <em>Contents: Read and write</em>, limitado só a este repositório).
+        O token fica guardado apenas neste navegador (localStorage) — nunca é enviado para nenhum lado além do GitHub.
+      </p>
+      <div class="field-row">
+        <label>Repositório (dono/nome)
+          <input id="ghRepo" type="text" placeholder="ex: joaosilva/cancioneiro">
+        </label>
+        <label>Ramo (branch)
+          <input id="ghBranch" type="text" placeholder="main" value="main">
+        </label>
+      </div>
+      <div class="field-row">
+        <label>Caminho do ficheiro
+          <input id="ghPath" type="text" placeholder="songs.json" value="songs.json">
+        </label>
+        <label>Personal access token
+          <input id="ghToken" type="password" placeholder="ghp_… ou github_pat_…">
+        </label>
+      </div>
+      <div class="field-row">
+        <button class="btn-primary" id="ghConnectBtn">Ligar e carregar songs.json</button>
+        <button class="btn-secondary" id="ghForgetBtn">Esquecer dados guardados</button>
+      </div>
+      <p id="githubMessage" class="hint hidden"></p>
+    </div>
+  </section>
+
+  <!-- ---------- Main editor: list + form ---------- -->
+  <div class="editor-grid">
+
+    <aside class="song-picker">
+      <div class="picker-header">
+        <input id="pickerSearch" type="search" placeholder="Procurar…">
+        <button class="btn-primary btn-small" id="newSongBtn">+ Nova</button>
+      </div>
+      <ul id="pickerList" class="picker-list"></ul>
+    </aside>
+
+    <main class="song-form">
+      <div class="form-row">
+        <label>Título *
+          <input id="fTitle" type="text" required>
+        </label>
+        <label>Autor
+          <input id="fAuthor" type="text">
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>Categorias <span class="hint-inline">(separadas por vírgula)</span>
+          <input id="fCategories" type="text" placeholder="Entrada, Ofertório">
+        </label>
+        <label>Link para ouvir
+          <input id="fListenUrl" type="text" placeholder="https://youtube.com/…">
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>Página de origem (sourceUrl)
+          <input id="fSourceUrl" type="text" placeholder="https://musicristo.pt/…">
+        </label>
+        <label>Nota de origem (sourceNote)
+          <input id="fSourceNote" type="text" placeholder="ex: Cancioneiro v1.0, cântico nº 12">
+        </label>
+      </div>
+
+      <label class="block">Letra
+        <textarea id="fLyrics" rows="8" placeholder="Letra completa, com quebras de linha."></textarea>
+      </label>
+
+      <label class="block">Acordes (guitarra)
+        <textarea id="fChords" rows="8" class="mono" placeholder='Acordes alinhados sobre a letra, ex:&#10;      D          G&#10;Vinde, adoremos...'></textarea>
+      </label>
+
+      <!-- ---------- Piano: simplified-notes → ABC converter ---------- -->
+      <div class="piano-editor block">
+        <p class="section-label">Piano (partitura)</p>
+
+        <div class="field-row">
+          <label>Tonalidade
+            <input id="pKey" type="text" placeholder="ex: Ré, Sol, Lá menor">
+          </label>
+          <label>Compasso
+            <input id="pMeter" type="text" placeholder="4/4" value="4/4">
+          </label>
+          <label>Andamento (opcional)
+            <input id="pTempo" type="text" placeholder="ex: 90">
+          </label>
+        </div>
+
+        <label class="block">
+          Notas simplificadas <span class="hint-inline">(nomes portugueses: Dó Ré Mi Fá Sol Lá Si — minúscula = oitava acima; # ou b para alterações; números = duração; acordes entre aspas)</span>
+          <textarea id="pNotesInput" rows="4" class="mono" placeholder='"D" Ré2 Fá2 | "G" Lá2 Fá2 | "A" Sol2 Si2 | "D" Lá4 |]'></textarea>
+        </label>
+
+        <div class="field-row">
+          <button class="btn-secondary btn-small" id="convertNotesBtn">Converter para ABC ↓</button>
+          <button class="btn-secondary btn-small" id="renderPreviewBtn">Atualizar pré-visualização</button>
+        </div>
+
+        <label class="block">
+          ABC (é isto que fica gravado — podes ajustar à mão)
+          <textarea id="pAbcOutput" rows="6" class="mono"></textarea>
+        </label>
+
+        <div id="pianoPreview" class="piano-preview"></div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-primary" id="saveGithubBtn">Publicar no GitHub</button>
+        <button class="btn-secondary" id="saveDraftBtn">Guardar rascunho local</button>
+        <button class="btn-secondary" id="downloadBtn">Descarregar songs.json</button>
+        <button class="btn-danger hidden" id="deleteBtn">Apagar esta música</button>
+      </div>
+      <p id="formMessage" class="hint hidden"></p>
+    </main>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/6.6.4/abcjs-basic-min.js"></script>
+<script src="editor.js"></script>
+</body>
+</html>
