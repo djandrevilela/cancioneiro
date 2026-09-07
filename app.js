@@ -67,6 +67,50 @@
       .toLowerCase();
   }
 
+  // The category tabs can overflow horizontally. Touchscreens scroll them
+  // with a swipe; a mouse has no equivalent, so we translate vertical wheel
+  // motion into horizontal scroll and support click-and-drag scrolling too.
+  function setupTabsScrolling() {
+    let isDown = false;
+    let startX = 0;
+    let startScroll = 0;
+    let moved = false;
+
+    tabsEl.addEventListener("wheel", (e) => {
+      if (tabsEl.scrollWidth <= tabsEl.clientWidth) return;
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        tabsEl.scrollLeft += e.deltaY;
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    tabsEl.addEventListener("mousedown", (e) => {
+      isDown = true;
+      moved = false;
+      startX = e.pageX;
+      startScroll = tabsEl.scrollLeft;
+      tabsEl.classList.add("dragging");
+    });
+    window.addEventListener("mouseup", () => {
+      isDown = false;
+      tabsEl.classList.remove("dragging");
+    });
+    window.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      const dx = e.pageX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      tabsEl.scrollLeft = startScroll - dx;
+    });
+    // If the mouse moved (a drag), swallow the click that would otherwise
+    // fire on the tab under the cursor so dragging doesn't also select it.
+    tabsEl.addEventListener("click", (e) => {
+      if (moved) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    }, true);
+  }
+
   function hashColor(str) {
     let hash = 0;
     for (let i = 0; i < str.length; i++) {
@@ -319,5 +363,6 @@
 
   window.addEventListener("resize", measureControlsHeight);
 
+  setupTabsScrolling();
   loadSongs();
 })();

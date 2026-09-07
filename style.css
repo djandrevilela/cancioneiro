@@ -115,8 +115,19 @@ html,body{
   overflow-x:auto;
   padding:14px 20px 14px;
   scrollbar-width:none;
+  cursor:grab;
 }
 .tabs::-webkit-scrollbar{display:none;}
+.tabs.dragging{cursor:grabbing; scroll-snap-type:none;}
+@media (hover:hover) and (pointer:fine){
+  .tabs{
+    scrollbar-width:thin;
+    scrollbar-color:var(--line) transparent;
+  }
+  .tabs::-webkit-scrollbar{display:block; height:6px;}
+  .tabs::-webkit-scrollbar-thumb{background:var(--line); border-radius:999px;}
+  .tabs::-webkit-scrollbar-track{background:transparent;}
+}
 .tab{
   flex:none;
   padding:7px 14px;
